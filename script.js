@@ -1,11 +1,9 @@
-let questions = [];
+import { quiz_data } from "./quiz_data.js";
+
 let currentQuestionIndex = 0;
 let score = 0;
 
-document.addEventListener("DOMContentLoaded", () => {
-    questions = quizData;
-    showQuestion();
-  });
+const questions = quiz_data;
 
 function showQuestion() {
   const question = questions[currentQuestionIndex];
@@ -58,3 +56,9 @@ function showResult() {
   document.getElementById("options-box").innerHTML = `<p>You got ${score} out of ${questions.length} correct.</p>`;
   document.getElementById("next-btn").style.display = "none";
 }
+
+
+// Init the quiz on page load
+document.addEventListener("DOMContentLoaded", () => {
+    showQuestion();
+  });
